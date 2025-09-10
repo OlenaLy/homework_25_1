@@ -1,8 +1,8 @@
 import React, { Component } from "react"; 
 import "./App.css";
-import Plan from "./Plan.jsx";
+import List from "./List.jsx";
 
-const planList = ['😾', '😺', '😹', '😻', '🙀']
+const smileList = ['😾', '😺', '😹', '😻', '🙀']
 
 export default class App extends Component {
     constructor(props) {
@@ -48,7 +48,7 @@ export default class App extends Component {
                 topSmile = emoji;
             } else if (results [emoji] == maxVotes) {
                 maxVotes = 'Неможу визначитися, спробуй ще';
-                topSmile = null;
+                topSmile = 0;
             }
         }
 
@@ -58,6 +58,7 @@ export default class App extends Component {
     };
 //очистити результати
     onClickClean = () => {
+        localStorage.removeItem('results');
         this.setState({
             results: {},
             winner: null,
@@ -69,8 +70,8 @@ export default class App extends Component {
     return (
         <div className="container">
         <h1 className="title">Голосування за найкращий смайлик</h1>
-        <Plan 
-            list={planList} 
+        <List 
+            list={smileList} 
             results={results} 
             onClickSmile={this.onClickSmile} 
             />

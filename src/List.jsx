@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Plan extends React.Component {
+export default class List extends React.Component {
     
     render (){
         const { list, results, onClickSmile} = this.props;
